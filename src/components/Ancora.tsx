@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Ancoras(props: {href: string, texto: string}) {
+function Ancora(props: {href: string, texto: string}) {
 
   return (
     <>
@@ -9,4 +9,4 @@ function Ancoras(props: {href: string, texto: string}) {
   )
 }
 
-export default Ancoras
+export default Ancora

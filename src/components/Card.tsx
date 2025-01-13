@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
+import CardItem from './CardItem.tsx';
 
 function Card() {
 
   return (
       <div>
-        <ul className='ms-2 list-disc'>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+        <ul className='px-8 my-2 list-inside list-disc'>
+            <CardItem texto='Item 1'></CardItem>
+            <CardItem texto='Item 2'></CardItem>
+            <CardItem texto='Item 3'></CardItem>
+            <CardItem texto='Item 10'></CardItem>
         </ul>
       </div>
   )
