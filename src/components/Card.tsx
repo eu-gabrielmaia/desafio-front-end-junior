@@ -3,7 +3,7 @@ import axios from 'axios';
 import CardItem from './CardItem.tsx';
 import Lista from '../pages/Lista/Lista.tsx';
 
-function Card() {
+function Card(props: {hidden: boolean}) {
 
   const baseUrl = 'https://cataas.com/api/cats';
 
@@ -11,15 +11,15 @@ function Card() {
   const [lista, setLista] = React.useState<string[]>([]);
 
   const addItem = (item:string) => {
-    const novoItem = item;
-    setLista([...lista, novoItem]);
+    setLista((prevList)=>([...prevList, item]));
   }
 
   React.useEffect(() => {
     axios.get(baseUrl).then((response) => {
-      setItemPost(response.data[0]._id);
-      lista.push(itemPost);
-      addItem(itemPost);
+      for (let i = 0; i < response.data.length; i++) {
+        const dado = response.data[i]._id;
+        addItem(dado);
+      }
     }).catch((error) => {
       console.error(error);
     }).finally(() => {
@@ -27,12 +27,14 @@ function Card() {
     })
   }, [baseUrl]);
 
+  // className={props.hidden ? 'hidden' : ''}
+
   return (
       <div>
         <ul className='px-8 my-2 list-inside list-disc'>
             {
-              lista.map((item) => {
-              return <CardItem texto={item} />
+              lista.map((item,index) => {
+              return <CardItem key={index} texto={item} />
             })
             }
             <CardItem texto='Teste'></CardItem>
