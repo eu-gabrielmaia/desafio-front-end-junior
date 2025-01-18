@@ -8,7 +8,7 @@ function Tag(props: {title: string}) {
   const [isHidden, setIsHidden] = useState(false);
 
   const handleClick = () => {
-    if(isHidden){
+    if(isHidden === true){
       setIsHidden(false);
     } else{
       setIsHidden(true);
