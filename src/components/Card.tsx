@@ -3,7 +3,7 @@ import axios from 'axios';
 import CardItem from './CardItem.tsx';
 import Lista from '../pages/Lista/Lista.tsx';
 
-function Card(props: {hidden: boolean}) {
+function Card() {
 
   const baseUrl = 'https://cataas.com/api/cats';
 
@@ -27,7 +27,12 @@ function Card(props: {hidden: boolean}) {
     })
   }, [baseUrl]);
 
-  // className={props.hidden ? 'hidden' : ''}
+  //exclui itens duplicado da lista da lista
+  for(let i = lista.length; i > 10; i--){
+    lista.pop()
+  }
+
+  console.log(lista);
 
   return (
       <div>

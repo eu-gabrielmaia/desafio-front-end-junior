@@ -18,7 +18,7 @@ function Tag(props: {title: string}) {
   function showCard() {
     if (isHidden) {
       return (
-        <Card hidden={true} />
+        <Card />
       )
     }
   }
