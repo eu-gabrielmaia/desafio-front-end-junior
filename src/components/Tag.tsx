@@ -23,13 +23,15 @@ function Tag(props: {title: string}) {
     }
   }
 
+  
+
   return (
     <>
-    <div className='p-4'>
-      <div className="tags bg-white flex items-center">
+    <div className='m-4 p-4 border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-lg hover:border-gray-400 hover:cursor-pointer' onClick={handleClick}>
+      <div className="tags flex items-center">
         <span className="material-symbols-outlined p-2">arrow_forward_ios</span>
-        <div className='font-bold' onClick={handleClick}>
-          <p className='text-2xl'>{props.title}</p>
+        <div className='font-bold'>
+          <p className='text-base'>{props.title}</p>
         </div>
       </div>
       {showCard()}
