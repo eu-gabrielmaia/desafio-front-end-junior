@@ -9,8 +9,7 @@ import React from 'react';
 function App() {
 
   const baseUrl = 'https://cataas.com/api/tags';
-
-  const [itemPost, setItemPost] = React.useState<string>('');
+  
   const [lista, setLista] = React.useState<string[]>([]);
 
   const addItem = (item:string) => {

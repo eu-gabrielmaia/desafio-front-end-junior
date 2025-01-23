@@ -4,7 +4,7 @@ function Ancora(props: {href: string, texto: string}) {
 
   return (
     <>
-        <a href={props.href} className="font-bold bg-red px-8 py-2 border rounded-sm ms-8 hover:bg-sky-700">{props.texto}</a>
+        <a href={props.href} className="bg-red px-8 py-2 border rounded-sm ms-8 hover:bg-sky-700 hover:shadow-xl hover:border-sky-400 hover:cursor-pointer">{props.texto}</a>
     </>
   )
 }
