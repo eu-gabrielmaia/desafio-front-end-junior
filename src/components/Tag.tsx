@@ -1,6 +1,4 @@
-import React from 'react';
 import Card from './Card.tsx';
-import CardItem from './CardItem.tsx';
 import { useState } from 'react';
 
 function Tag(props: {title: string}) {
@@ -18,12 +16,10 @@ function Tag(props: {title: string}) {
   function showCard() {
     if (isHidden) {
       return (
-        <Card />
+        <Card tags="cute"/>
       )
     }
   }
-
-  
 
   return (
     <>

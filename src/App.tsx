@@ -1,14 +1,12 @@
 import './App.css';
-import Lista from './pages/Lista/Lista.tsx';
 import Ancora from './components/Ancora.tsx';
-import Formulario from './pages/Formulario.tsx';
 import Tag from './components/Tag.tsx';
 import axios from 'axios';
 import React from 'react';
 
 function App() {
 
-  const baseUrl = 'https://cataas.com/api/tags';
+  const baseUrl:string = 'https://cataas.com/api/tags';
   
   const [lista, setLista] = React.useState<string[]>([]);
 
@@ -20,7 +18,6 @@ function App() {
     axios.get(baseUrl).then((response) => {
      response.data.map((item:string) => {
       addItem(item);
-      console.log("Oi eu sou o:", item);
      })
     }).catch((error) => {
       console.error(error);
@@ -29,11 +26,10 @@ function App() {
     })
   }, [baseUrl]);
 
-  console.log(lista);
-
   return (
     <>
       <div className="bg-black text-white py-4">
+        <Ancora href='#topo' texto='Voltar'/>
         <Ancora href="Lista.tsx" texto="Lista de Gatos"/>
         <Ancora href="Formulario.tsx" texto="Formulário"/>
       </div>
