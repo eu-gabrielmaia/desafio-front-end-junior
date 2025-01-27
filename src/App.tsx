@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-black text-white py-4">
+      <div className="sticky top-0 bg-black text-white py-4 w-full">
         <Ancora href='#topo' texto='Voltar'/>
         <Ancora href="Lista.tsx" texto="Lista de Gatos"/>
         <Ancora href="Formulario.tsx" texto="Formulário"/>
@@ -41,8 +41,6 @@ function App() {
           })
         }
       </div>
-      <Tag title="Tag1"/>
-      <Tag title="Tag2"/>
     </>
   )
 }

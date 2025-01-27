@@ -13,7 +13,6 @@ function Card(props: {tags: string}) {
 
   React.useEffect(() => {
     axios.get(baseUrl).then((response) => {
-      console.log("Nova requisicao")
       const listaItens:JSX.Element[] = [];
       for (let i = 0; i < response.data.length; i++) {
         response.data[i].tags.map((item:string) => {
@@ -28,8 +27,6 @@ function Card(props: {tags: string}) {
      setItens(listaItens);
     }).catch((error) => {
       console.error(error);
-    }).finally(() => {
-      console.log('Requesicao completa');
     })
   }, [baseUrl]);
 
