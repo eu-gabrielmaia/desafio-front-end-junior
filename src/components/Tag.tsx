@@ -13,10 +13,10 @@ function Tag(props: {title: string}) {
     }
   };
 
-  function showCard() {
+  function showCard(titulo:string) {
     if (isHidden) {
       return (
-        <Card tags="cute"/>
+        <Card tags={titulo}/>
       )
     }
   }
@@ -30,7 +30,7 @@ function Tag(props: {title: string}) {
           <p className='text-base'>{props.title}</p>
         </div>
       </div>
-      {showCard()}
+      {showCard(props.title)}
     </div>
     </>
   )

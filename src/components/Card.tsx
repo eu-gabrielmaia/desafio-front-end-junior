@@ -15,28 +15,27 @@ function Card(props: {tags: string}) {
     axios.get(baseUrl).then((response) => {
       console.log("Nova requisicao")
       const listaItens:JSX.Element[] = [];
-     for (let i = 0; i < response.data.length; i++) {
-      response.data[i].tags.map((item:string) => {
-        if (item == props.tags){
-          console.log("Tag encontrada", item);
-          console.log("ID: ",response.data[i]._id);
-          listaItens.push(acrecentaCardItem(response.data[i]._id));
-        }
-        console.log("---------------");
-       })
-     }
+      for (let i = 0; i < response.data.length; i++) {
+        response.data[i].tags.map((item:string) => {
+          if (item == props.tags){
+            listaItens.push(acrecentaCardItem(response.data[i]._id));
+          }
+        })
+      }
+      if (listaItens.length == 0){
+        listaItens.push(acrecentaCardItem("Nenhum item encontrado"));
+      }
      setItens(listaItens);
     }).catch((error) => {
       console.error(error);
     }).finally(() => {
-      console.log('Request completed');
+      console.log('Requesicao completa');
     })
   }, [baseUrl]);
 
   return (
       <div>
         <ul className='px-8 my-2 list-inside list-disc'>
-            <CardItem texto='Teste'></CardItem>
             {itens}
         </ul>
       </div>
