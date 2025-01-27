@@ -1,47 +1,30 @@
 import './App.css';
 import Ancora from './components/Ancora.tsx';
-import Tag from './components/Tag.tsx';
-import axios from 'axios';
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Lista from './pages/Lista.tsx';
+import Formulario from './pages/Formulario.tsx';
+import Home from './pages/Home.tsx';
 
 function App() {
 
-  const baseUrl:string = 'https://cataas.com/api/tags';
-  
-  const [lista, setLista] = React.useState<string[]>([]);
-
-  const addItem = (item:string) => {
-    setLista((prevList)=>([...prevList, item]));
-  }
-
-  React.useEffect(() => {
-    axios.get(baseUrl).then((response) => {
-     response.data.map((item:string) => {
-      addItem(item);
-     })
-    }).catch((error) => {
-      console.error(error);
-    }).finally(() => {
-      console.log('Request completed');
-    })
-  }, [baseUrl]);
-
   return (
-    <>
-      <div className="sticky top-0 bg-black text-white py-4 w-full">
-        <Ancora href='#topo' texto='Voltar'/>
-        <Ancora href="Lista.tsx" texto="Lista de Gatos"/>
-        <Ancora href="Formulario.tsx" texto="Formulário"/>
-      </div>
+    <Router>
+      
+        <nav className="sticky top-0 bg-black text-white py-4 w-full">
+          <ul className='flex justify-center gap-x-8 gap-y-4 flex-wrap mx-4'>
+            <Ancora href='/' texto='Home'/>
+            <Ancora href="/lista" texto="Lista de Gatos"/>
+            <Ancora href="/form" texto="Formulário"/>
+          </ul>
+        </nav>
 
-      <div className='m-8' id='topo'>
-        {
-          lista.map((item, index) => {
-            return <Tag key={index} title={item} />
-          })
-        }
-      </div>
-    </>
+      <Routes>
+        <Route path="/lista" element={<Lista/>} />
+        <Route path="/form" element={<Formulario/>} />
+        <Route path="/" element={<Home/>} />
+      </Routes>
+      
+    </Router>
   )
 }
 

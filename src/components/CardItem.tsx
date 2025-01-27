@@ -1,5 +1,5 @@
-function CardItem(props: { texto: string}) {
 
+function CardItem(props: { texto: string}) {
   return (
     <>
         <div className="card">
