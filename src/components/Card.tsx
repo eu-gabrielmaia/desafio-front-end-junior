@@ -33,7 +33,12 @@ function Card(props: {tags: string}) {
   return (
       <div>
         <ul className='px-8 my-2 list-inside list-disc'>
-            {itens}
+            {
+              itens.map((item) => {
+                return item;
+              })
+            }
+            
         </ul>
       </div>
   )
