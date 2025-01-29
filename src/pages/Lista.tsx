@@ -1,51 +1,39 @@
 import React from 'react';
 import axios from 'axios';
 import Tag from '../components/Tag.tsx';
-import CardItem from '../components/CardItem.tsx';
 
 function Lista (){
-
+    
     const baseUrl:string = 'https://cataas.com/api/tags';
   
     const [listaTags, setLista] = React.useState<string[]>([]);
+    const [listaFiltrada, setListaFiltrada] = React.useState<string[]>([]);
 
     const addItem = (item:string) => {
         setLista((prevList)=>([...prevList, item]));
     }
 
-    const input = (document.getElementById('pesquisa') as HTMLInputElement);
-
-    function filtrarLista(){
-        if (listaTags.includes(input.value)){
-            let listaFiltrada:string[], listaOriginal:string[];
-            listaOriginal = listaTags;
-            listaFiltrada = listaTags.filter(item => item === input.value);
+    function filtrarLista(evento: React.ChangeEvent<HTMLInputElement>){
+        const value = evento.target.value.toLowerCase()
+        console.log(value);
+        if (value.trim() == '') {
             setLista(listaFiltrada);
-            console.log(`Tem ${input.value} na lista`)
-            if(input.value.trim() == ''){
-                setLista(listaOriginal)
-            }
-        }
-        if(listaTags.includes(input.value) === false){
-                setLista([]);
-                return <p>Nenhuma tags econtrada</p>
+        } else {
+            const listaFiltrada1 = listaTags.filter(item => item.toLowerCase().includes(value));
+            setLista(listaFiltrada1);
         }
     }
 
     React.useEffect(() => {
         axios.get(baseUrl).then((response) => {
-            response.data.map((item:string) => {
-                addItem(item);
-            })
+            const tags = response.data;
+            setLista(tags);
+            setListaFiltrada(tags);
             }).catch((error) => {
             console.error(error);
             }).finally(() => {
             console.log('Requesição finalizada');
         })
-
-        if (input) {
-            input.onchange = filtrarLista;
-        }
     }, []);
 
 
