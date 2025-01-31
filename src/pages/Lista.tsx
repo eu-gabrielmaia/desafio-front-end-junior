@@ -14,8 +14,7 @@ function Lista (){
     }
 
     function filtrarLista(evento: React.ChangeEvent<HTMLInputElement>){
-        const value = evento.target.value.toLowerCase()
-        console.log(value);
+        const value = evento.target.value.toLowerCase();
         if (value.trim() == '') {
             setLista(listaFiltrada);
         } else {
@@ -41,7 +40,7 @@ function Lista (){
     return(
         <> 
             <div className="bg-gradient-to-r from-indigo-700 to-indigo-500 p-4 text-white text-center text-2xl">
-                <p className="text-white font-bold uppercase">Lista de Gatos</p>
+                <p className="font-bold uppercase">Lista de Gatos</p>
             </div>
 
             <div>
