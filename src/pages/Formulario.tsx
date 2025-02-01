@@ -18,6 +18,9 @@ function Formulario (){
                 <AncoraEtapa href="/form/et3" texto="Etapa 3"/>
             </div>
             
+            <form className="p-4 m-8 border-2 border-sky-800 rounded">
+                <Etapa1/>
+            </form>
             
         </>
     )

@@ -2,8 +2,8 @@
 function Etapa2 (){
     return(
         <>
-           <label htmlFor=""></label>
-           <input type="text" id="nome" name="nome" />
+           <label className="block" htmlFor="nome">Nome</label>
+           <input className="border rounded" type="text" id="nome" name="nome" />
         </>
     )
 }
