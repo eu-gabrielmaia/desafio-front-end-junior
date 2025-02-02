@@ -19,7 +19,7 @@ function Formulario (){
             </div>
             
             <form className="p-4 m-8 border-2 border-sky-800 rounded">
-                <Etapa1/>
+                <Etapa2/>
             </form>
             
         </>
