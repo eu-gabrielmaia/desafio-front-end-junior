@@ -22,7 +22,7 @@ function Etapa2() {
             </div>
 
             <div className="flex justify-end gap-5">
-                <input className="rounded bg-sky-500 px-2 py-1 text-white hover:bg-sky-800" type="button" value="Avançar" id="avancar" />
+                <a className="rounded bg-sky-500 px-2 py-1 text-white hover:bg-sky-800" id="avancar"  href='/form/et3'>Avancar</a>
                 <input className="bg-gray-100 border rounded px-2 py-1" type="submit" value="Enviar" disabled />
             </div>
         </>

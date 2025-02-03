@@ -14,13 +14,13 @@ function App() {
           <ul className='flex justify-center gap-x-8 gap-y-4 flex-wrap mx-4'>
             <Ancora href='/' texto='Home'/>
             <Ancora href="/lista" texto="Lista de Gatos"/>
-            <Ancora href="/form" texto="Formulário"/>
+            <Ancora href="/form/*" texto="Formulário"/>
           </ul>
         </nav>
 
       <Routes>
         <Route path="/lista" element={<Lista/>} />
-        <Route path="/form" element={<Formulario/>} />
+        <Route path="/form/*" element={<Formulario/>} />
         <Route path="/" element={<Home/>} />
       </Routes>
       
