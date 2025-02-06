@@ -38,7 +38,6 @@ function Card(props: {tags: string}) {
                 return item;
               })
             }
-            
         </ul>
       </div>
   )
