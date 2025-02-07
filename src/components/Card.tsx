@@ -17,7 +17,7 @@ function Card(props: {tags: string}) {
       for (let i = 0; i < response.data.length; i++) {
         response.data[i].tags.map((item:string) => {
           if (item == props.tags){
-            listaItens.push(acrecentaCardItem(response.data[i]._id));
+            listaItens.push(acrecentaCardItem(response.data[i].id));
           }
         })
       }
