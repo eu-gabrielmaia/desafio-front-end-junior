@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FormContext } from "../formEtapas/FormContext.tsx";
+import { Link } from "react-router-dom";
 
 function Etapa3() {
     const formContext = useContext(FormContext);
@@ -9,6 +10,15 @@ function Etapa3() {
     }
 
     const { formData, setFormData } = formContext;
+
+    const isFormComplete = Object.values(formData).every((value) => value.trim() !== "");
+
+    <input
+        className={`px-2 py-1 border rounded ${isFormComplete ? "bg-sky-500 text-white hover:bg-sky-800" : "bg-gray-100"}`}
+        type="submit"
+        value="Enviar"
+        disabled={!isFormComplete}
+    />
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -73,7 +83,15 @@ function Etapa3() {
             </div>
 
             <div className="flex justify-end gap-5">
-                <input className="bg-gray-100 border rounded px-2 py-1" type="submit" value="Enviar" disabled />
+                <Link className="rounded bg-sky-500 px-2 py-1 text-white hover:bg-sky-800" to="/form/et2">
+                    Voltar
+                </Link>
+                <input
+                    className={`px-2 py-1 rounded ${isFormComplete ? "bg-red-500 text-white hover:bg-red-800" : "bg-gray-100"}`}
+                    type="submit"
+                    value="Enviar"
+                    disabled={!isFormComplete}
+                />
             </div>
         </>
     );

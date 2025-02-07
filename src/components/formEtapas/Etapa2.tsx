@@ -11,6 +11,8 @@ function Etapa2() {
 
     const { formData, setFormData } = formContext;
 
+    const isFormComplete = Object.values(formData).every((value) => value.trim() !== "");
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -63,7 +65,12 @@ function Etapa2() {
                 <Link className="rounded bg-sky-500 px-2 py-1 text-white hover:bg-sky-800" to="/form/et3">
                     Avançar
                 </Link>
-                <input className="bg-gray-100 border rounded px-2 py-1" type="submit" value="Enviar" disabled />
+                <input
+                    className={`px-2 py-1 rounded ${isFormComplete ? "bg-red-500 text-white hover:bg-red-800" : "bg-gray-100"}`}
+                    type="submit"
+                    value="Enviar"
+                    disabled={!isFormComplete}
+                />
             </div>
         </>
     );

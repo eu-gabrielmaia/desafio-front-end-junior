@@ -9,10 +9,6 @@ function Lista (){
     const [listaTags, setLista] = React.useState<string[]>([]);
     const [listaFiltrada, setListaFiltrada] = React.useState<string[]>([]);
 
-    const addItem = (item:string) => {
-        setLista((prevList)=>([...prevList, item]));
-    }
-
     function filtrarLista(evento: React.ChangeEvent<HTMLInputElement>){
         const value = evento.target.value.toLowerCase();
         if (value.trim() == '') {
